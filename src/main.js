@@ -14,7 +14,10 @@ Vue.use(VueLazyLoad,{
 
 import 'element-ui/lib/theme-chalk/index.css';
 
-
+//导入axios
+import axios from "axios";
+axios.defaults.baseURL = 'http://47.106.148.205:8899/';
+Vue.prototype.$axios = axios
 
 
 

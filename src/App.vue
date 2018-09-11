@@ -118,40 +118,41 @@
 </template>
 
 <script>
-import $ from "jquery";
-
+import $ from 'jquery'
+window.$ = $
+window.jQuery = $
 export default {
   mounted() {
-    $("#menu2 li a").wrapInner('<span class="out"></span>');
-    $("#menu2 li a").each(function() {
-      $('<span class="over">' + $(this).text() + "</span>").appendTo(this);
-    });
+    $('#menu2 li a').wrapInner('<span class="out"></span>')
+    $('#menu2 li a').each(function() {
+      $('<span class="over">' + $(this).text() + '</span>').appendTo(this)
+    })
 
-    $("#menu2 li a").hover(
+    $('#menu2 li a').hover(
       function() {
-        $(".out", this)
+        $('.out', this)
           .stop()
-          .animate({ top: "48px" }, 300); // move down - hide
-        $(".over", this)
+          .animate({ top: '48px' }, 300) // move down - hide
+        $('.over', this)
           .stop()
-          .animate({ top: "0px" }, 300); // move down - show
+          .animate({ top: '0px' }, 300) // move down - show
       },
       function() {
-        $(".out", this)
+        $('.out', this)
           .stop()
-          .animate({ top: "0px" }, 300); // move up - show
-        $(".over", this)
+          .animate({ top: '0px' }, 300) // move up - show
+        $('.over', this)
           .stop()
-          .animate({ top: "-48px" }, 300); // move up - hide
+          .animate({ top: '-48px' }, 300) // move up - hide
       }
-    );
+    )
   }
-};
+}
 </script>
 
 
 <style>
-@import "./statics/site/jquery_plugins/hoverNav/css/style.css";
+@import './statics/site/jquery_plugins/hoverNav/css/style.css';
 
-@import "./statics/site/css/style.css";
+@import './statics/site/css/style.css';
 </style>

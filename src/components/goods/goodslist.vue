@@ -87,7 +87,7 @@
                 <div class="wrap-box">
                     <ul class="img-list">
                         <li v-for="subitem in item.datas" :key="subitem.artID">
-                            <a href="#/site/goodsinfo/87" class="">
+                            <router-link :to="'/goodsinfo/'+subitem.artID" class="">
                                 <div class="img-box">
                                     <img v-lazy="subitem.img_url">
                                 </div>
@@ -102,7 +102,7 @@
                                         </span>
                                     </p>
                                 </div>
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -118,7 +118,6 @@
 </style>
 
 <script>
-import axios from "axios";
 
 export default {
   data() {
@@ -133,14 +132,14 @@ export default {
   },
   methods: {
     getTopData() {
-      const url = "http://47.106.148.205:8899/site/goods/gettopdata/goods";
-      axios.get(url).then(res => {
+      const url = "site/goods/gettopdata/goods";
+      this.$axios.get(url).then(res => {
         this.topData = res.data.message;
       });
     },
     getgoodsgroup() {
-      const url = "http://47.106.148.205:8899/site/goods/getgoodsgroup";
-      axios.get(url).then(res => {
+      const url = "site/goods/getgoodsgroup";
+      this.$axios.get(url).then(res => {
         this.goodsGroup = res.data.message;
       });
     }
